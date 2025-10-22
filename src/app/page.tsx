@@ -1,8 +1,10 @@
+import Header from '@/components/Header';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-3xl font-bold">Hello from Next + TypeScript</h1>
+    <main className="min-h-screen bg-gradient-to-b from-purple-700 to-pink-500 text-white flex flex-col items-center justify-center p-8">
+      <Header />
     </main>
   );
 }
+
