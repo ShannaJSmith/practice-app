@@ -3,26 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:open": "npm run dev & open http://localhost:3001",
-    "dev": "next dev --turbopack",
+    "predev": "npx kill-port 3000",
+    "dev": "next dev --turbopack -p 3000",
+    "dev:open": "npx concurrently \"npm run dev\" \"npx wait-on http://localhost:3000 && open http://localhost:3000\"",
+    "open": "open http://localhost:3000",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "next": "15.5.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.6"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.6",
-    "@eslint/eslintrc": "^3"
+    "kill-port": "^2.0.1",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wait-on": "^9.0.1"
   }
 }
